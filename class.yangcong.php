@@ -138,7 +138,7 @@ class yangcong {
 			print '<div id="yangcong_login" style="display:none">';
 			print '<p style="text-align: center;"><img width="100%" src="' . $loginCode['qrcode_url'] . '"></p>';
 			print '<p style="text-align: center;" id="code_message">请扫描二维码授权</p>';
-			print '<p style="text-align: center;">手机无法连接网络?请<a href="' . $authPage . '">点击这里</a>或<a href="javascript:;" onclick="jQuery(this).parent().parent().hide();jQuery(\'#yangcong_login_bt\').fadeToggle();jQuery(\'#loginform p\').show();">账号登录</a></p>';
+			print '<p style="text-align: center;">手机无法连接网络?请<a href="' . $authPage . '">点击这里</a>或<a href="javascript:;" onclick="jQuery(this).parent().parent().hide();jQuery(\'#yangcong_login_bt\').fadeToggle();jQuery(\'#loginform > p\').show();">账号登录</a></p>';
 			print <<<EOF
 <script type="text/javascript">
 var yangcong_uuid="{$loginCode['uuid']}",yangcong_login_url="{$login_url}";
@@ -148,7 +148,7 @@ EOF;
 
 			// } else {
 
-			print '<p id="yangcong_login_bt"><a href="javascript:;" onclick="jQuery(this).parent().hide();jQuery(\'#loginform p\').hide();jQuery(\'#yangcong_login\').fadeToggle();"><img src="./wp-content/plugins/yangcong/image/login.jpg"  alt="洋葱扫一扫登录" /></a></p>';
+			print '<p id="yangcong_login_bt"><a href="javascript:;" onclick="jQuery(this).parent().hide();jQuery(\'#loginform > p\').hide();jQuery(\'#yangcong_login\').fadeToggle();"><img src="./wp-content/plugins/yangcong/image/login.jpg"  alt="洋葱扫一扫登录" /></a></p>';
 		}else{
 			echo 22;
 		}
