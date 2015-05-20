@@ -32,7 +32,7 @@ class yangcong_admin extends yangcong {
 
     public static function _login() {
         if (is_user_logged_in()) {
-           
+
         }
     }
 
@@ -73,7 +73,7 @@ class yangcong_admin extends yangcong {
                 <h2>绑定或重新绑定洋葱网授权</h2>
                 <?php
                 if (!isset($_GET['cancel'])) {
-                    print '<p style="text-align: center;"><img width="500px" height="500px" src="' . $binding['qrcode_url'] . '"></p>';
+                    print '<p style="text-align: center;"><img width="300px" height="300px" src="' . $binding['qrcode_url'] . '"></p>';
                     print '<p style="text-align: center;" id="code_message">请扫描二维码授权</p>';
                     print '<p style="text-align: center;">手机无法连接网络?请<a href="' . $authPage . '">点击这里</a>或<a href="profile.php?page=yangcong-profile">重试</a></p>';
                     if (self::getUserMeta(wp_get_current_user()->ID)) {
@@ -117,7 +117,7 @@ EOF;
         self::$options = get_option('yangcong');
         ?>
         <div class="wrap">
-            <h2>洋葱网授权</h2>           
+            <h2>洋葱网授权</h2>
             <form method="post" action="options.php">
                 <?php
                 settings_fields('yangcong_group');
@@ -145,10 +145,10 @@ EOF;
 
         add_settings_field(
                 'appid', // ID
-                '应用id', // Title 
+                '应用id', // Title
                 array('yangcong_admin', 'appid_callback'), // Callback
                 'yangcong_admin', // Page
-                'setting_section_id' // Section           
+                'setting_section_id' // Section
         );
 
         add_settings_field(
