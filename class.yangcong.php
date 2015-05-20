@@ -136,7 +136,7 @@ class yangcong {
 		if (is_array($loginCode)) {
 			//echo 11;exit;
 			print '<div id="yangcong_login" style="display:none">';
-			print '<p style="text-align: center;"><img src="' . $loginCode['qrcode_url'] . '"></p>';
+			print '<p style="text-align: center;"><img width="100%" src="' . $loginCode['qrcode_url'] . '"></p>';
 			print '<p style="text-align: center;" id="code_message">请扫描二维码授权</p>';
 			print '<p style="text-align: center;">手机无法连接网络?请<a href="' . $authPage . '">点击这里</a>或<a href="javascript:;" onclick="jQuery(this).parent().parent().hide();jQuery(\'#yangcong_login_bt\').fadeToggle();">账号登录</a></p>';
 			print <<<EOF
