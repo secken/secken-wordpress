@@ -7,26 +7,26 @@
 class yangcong_admin extends yangcong {
 
     public static function init() {
-        if (is_user_logged_in() && isset($_POST['uuid'])) {
+        if (is_user_logged_in() && isset($_POST['uuid'])) { //如果用户已经登录而且post uuid
             nocache_headers();
             if (isset($_GET['cancel'])) {
                 $info = self::getResult($_POST['uuid']);
-                if (!empty($info['userid']) && $info['userid'] === self::getUserMeta(wp_get_current_user()->ID)) {
+                if (!empty($info['uid']) && $info['uid'] === self::getUserMeta(wp_get_current_user()->ID)) {
                     self::delUserMeta(wp_get_current_user()->ID) ? self::success('取消成功', 'profile.php?page=yangcong-profile') : self::failure('取消失败');
                 } else {
                     self::failure(self::get_message());
                 }
             } else {
                 $info = self::getResult($_POST['uuid']);
-                if (!empty($info['userid'])) {
-                    self::updateUserMeta(wp_get_current_user()->ID, $info['userid']) ? self::success('绑定成功', $_SERVER['REQUEST_URI']) : self::failure('绑定失败');
+                if (!empty($info['uid'])) {
+                    self::updateUserMeta(wp_get_current_user()->ID, $info['uid']) ? self::success('绑定成功', $_SERVER['REQUEST_URI']) : self::failure('绑定失败');
                 } else {
                     self::failure(self::get_message());
                 }
             }
         }
-        add_action('admin_menu', array('yangcong_admin', 'add_plugin_page'));
-        add_action('admin_init', array('yangcong_admin', 'page_init'));
+        add_action('admin_menu', array('yangcong_admin', 'add_plugin_page')); //用户下加入我的洋葱网授权页面，设置下加入洋葱网授权页面
+        add_action('admin_init', array('yangcong_admin', 'page_init')); 
         self::_login();
     }
 
@@ -49,7 +49,7 @@ class yangcong_admin extends yangcong {
         );
     }
 
-    public static function yangcong_page() {
+    public static function yangcong_page() { //我的洋葱网授权页面内容
 
 
 //getUserMeta(wp_get_current_user()->ID)
@@ -107,7 +107,7 @@ class yangcong_admin extends yangcong {
         <?php
         print <<<EOF
 <script type="text/javascript">
-var yangcong_uuid="{$binding['uuid']}",yangcong_login_url=location.href;
+var yangcong_uuid="{$binding['event_id']}",yangcong_login_url=location.href;
 </script>
 EOF;
     }

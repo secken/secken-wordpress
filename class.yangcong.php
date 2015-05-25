@@ -87,7 +87,6 @@ class yangcong {
 
 	public static function init() {
 		self::$options = get_option('yangcong');
-
 		if (isset(self::$options['appid'])) {
 			self::$APP_ID = self::$options['appid'];
 		}
@@ -109,8 +108,8 @@ class yangcong {
 		global $wpdb;
 		if (!empty($_GET['redirect_to']) && $_GET['redirect_to'] === 'yangcong_login' && isset($_POST['uuid'])) {
 			$info = self::getResult($_POST['uuid']);
-			if (!empty($info['userid'])) {
-				$author_id = $wpdb->get_var("SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'yangcong_uid' AND meta_value ='{$info['userid']}'");
+			if (!empty($info['uid'])) {
+				$author_id = $wpdb->get_var("SELECT user_id FROM $wpdb->usermeta WHERE meta_key = 'yangcong_uid' AND meta_value ='{$info['uid']}'");
 				if (is_numeric($author_id)) {
 					wp_clear_auth_cookie();
 					wp_set_auth_cookie($author_id, true, is_ssl());
@@ -127,30 +126,27 @@ class yangcong {
 
 	public static function login_form() {
 
-		//if (!empty($_GET['redirect_to']) && $_GET['redirect_to'] === 'yangcong_login') {
-		wp_register_script('yangcong_login', YANGCONG__PLUGIN_URL . 'js/yangcong_login.js', array('jquery'), YANGCONG_VERSION);
+		// if (!empty($_GET['redirect_to']) && $_GET['redirect_to'] === 'yangcong_login') {
+		wp_register_script('yangcong_login', YANGCONG__PLUGIN_URL . 'js/yangcong_login.js', array('jquery'), YANGCONG_VERSION);//注册js,异步发送
 		wp_enqueue_script('yangcong_login');
 		$loginCode = self::getLoginCode();
 		$login_url = wp_login_url('yangcong_login');
 		$authPage = self::authPage($login_url);
 		if (is_array($loginCode)) {
-			//echo 11;exit;
 			print '<div id="yangcong_login" style="display:none">';
 			print '<p style="text-align: center;"><img width="100%" src="' . $loginCode['qrcode_url'] . '"></p>';
 			print '<p style="text-align: center;" id="code_message">请扫描二维码授权</p>';
 			print '<p style="text-align: center;">手机无法连接网络?请<a href="' . $authPage . '">点击这里</a>或<a href="javascript:;" onclick="jQuery(this).parent().parent().hide();jQuery(\'#yangcong_login_bt\').fadeToggle();jQuery(\'#loginform > p\').show();">账号登录</a></p>';
 			print <<<EOF
 <script type="text/javascript">
-var yangcong_uuid="{$loginCode['uuid']}",yangcong_login_url="{$login_url}";
+var yangcong_uuid="{$loginCode['event_id']}",yangcong_login_url="{$login_url}";
 </script>
 EOF;
 			print '<br/></div>';
 
-			// } else {
+		// } else {
 
 			print '<p id="yangcong_login_bt"><a href="javascript:;" onclick="jQuery(this).parent().hide();jQuery(\'#loginform > p\').hide();jQuery(\'#yangcong_login\').fadeToggle();"><img src="./wp-content/plugins/yangcong/image/login.jpg"  alt="洋葱扫一扫登录" /></a></p>';
-		}else{
-			echo 22;
 		}
 	}
 
@@ -198,6 +194,7 @@ EOF;
 		// $result = self::_post(self::$_GetResult, array('app_id' => self::$APP_ID, 'event_id' => $uuid, 'signature' => md5('app_id=' . self::$APP_ID . 'event_id=' . $uuid . self::$APP_KEY)));
 		$arr=array('app_id' => self::$APP_ID, 'event_id' => $uuid, 'signature' => md5('app_id=' . self::$APP_ID . 'event_id=' . $uuid . self::$APP_KEY));
 		$url=self::$_GetResult."?app_id=".$arr['app_id']."&signature=".$arr['signature']."&event_id=".$arr['event_id'];
+		$result=self::_get($url);
 		return $result;
 	}
 
@@ -233,8 +230,10 @@ EOF;
 		$d['auth_id'] = self::$WEBAUTHCODE;
 		$d['timestamp'] = $time;
 		$d['callback'] = $callback;
-
-		return self::$_AuthPage . '?' . http_build_query($d);
+		$url=self::$_GetResult."?auth_id=".$d['auth_id']."&timestamp=".$d['timestamp']."&callback=".$d['callback']."&signature=".$d['signature'];
+		$result=self::_get($url);
+		return $result;
+		// return self::$_AuthPage . '?' . http_build_query($d);
 	}
 
 	/**
