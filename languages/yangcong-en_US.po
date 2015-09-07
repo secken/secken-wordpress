@@ -1,0 +1,200 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 洋葱授权\n"
+"POT-Creation-Date: 2015-09-07 09:40+0800\n"
+"PO-Revision-Date: 2015-09-07 09:44+0800\n"
+"Last-Translator: \n"
+"Language-Team: support\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.7\n"
+"X-Poedit-Basepath: /usr/local/nginx/html/wordpress/wp-content/plugins/"
+"yangcong/\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;gettext\n"
+"X-Poedit-SearchPath-0: yangcong_admin.php\n"
+"X-Poedit-SearchPath-1: yangcong_login.php\n"
+"X-Poedit-SearchPath-2: secken.class.php\n"
+
+#: secken.class.php:48
+msgid "请求成功"
+msgstr "request success"
+
+#: secken.class.php:49
+msgid "请求参数格式错误"
+msgstr "Request parameter format error"
+
+#: secken.class.php:50
+msgid "app 状态错误"
+msgstr "Dynamic verification code error"
+
+#: secken.class.php:51
+msgid "app_id错误"
+msgstr "App_id error"
+
+#: secken.class.php:52
+msgid "请求签名错误"
+msgstr "Request signature error"
+
+#: secken.class.php:53
+msgid "请求API不存在"
+msgstr "Request API does not exist"
+
+#: secken.class.php:54
+msgid "请求方法错误"
+msgstr "Request method error"
+
+#: secken.class.php:55
+msgid "不在应用白名单里"
+msgstr "Not in the application of the white list"
+
+#: secken.class.php:56
+msgid "30s离线验证太多次，请重新打开离线验证页面"
+msgstr ""
+"30s offline verification is too many times, please re open the offline "
+"verification page"
+
+#: secken.class.php:57
+msgid "洋葱系统服务错误"
+msgstr "Secken system service error"
+
+#: secken.class.php:58
+msgid "生成二维码图片失败"
+msgstr "Generate qrcode image failure"
+
+#: secken.class.php:59
+msgid "动态验证码错误"
+msgstr "Dynamic verification code error"
+
+#: secken.class.php:60
+msgid "用户拒绝授权"
+msgstr "User denied authorization"
+
+#: secken.class.php:61
+msgid "等待用户响应超时，可重试"
+msgstr "Waiting for the user to respond to a timeout, and try again"
+
+#: secken.class.php:62
+msgid "等待用户响应超时，不可重试"
+msgstr "Waiting for the user to respond to a timeout, not to try again"
+
+#: secken.class.php:63
+msgid "用户或event_id不存在"
+msgstr "The user or event_id does not exist"
+
+#: secken.class.php:64
+msgid "用户未开启该验证类型"
+msgstr "The user does not open the authentication type"
+
+#: yangcong_admin.php:5 yangcong_admin.php:10 yangcong_admin.php:13
+msgid "洋葱授权"
+msgstr "Secken"
+
+#: yangcong_admin.php:10
+msgid "设置"
+msgstr "setting"
+
+#: yangcong_admin.php:13
+msgid "我的洋葱"
+msgstr "My secken"
+
+#: yangcong_admin.php:39
+msgid "请使用洋葱APP扫描下方二维码绑定或重新绑定洋葱网授权"
+msgstr ""
+"Please use the secken APP scan two-dimensional code below the onion onion "
+"bound or rebinding authorization"
+
+#: yangcong_admin.php:43 yangcong_login.php:39 yangcong_login.php:47
+msgid "请使用洋葱APP扫描二维码"
+msgstr "Please use the secken APP scan two-dimensional code"
+
+#: yangcong_admin.php:50
+msgid "等待取消"
+msgstr "Cancle waiting"
+
+#: yangcong_admin.php:54
+msgid "重试"
+msgstr "Try again"
+
+#: yangcong_admin.php:79
+msgid "取消成功"
+msgstr "Cancle success"
+
+#: yangcong_admin.php:79
+msgid "取消失败"
+msgstr "Cancle failure"
+
+#: yangcong_admin.php:86
+msgid "绑定成功"
+msgstr "Binding success"
+
+#: yangcong_admin.php:86
+msgid "绑定失败"
+msgstr "Bind failed"
+
+#: yangcong_admin.php:243
+msgid "洋葱AppID"
+msgstr "secken AppID"
+
+#: yangcong_admin.php:243
+msgid "设置洋葱授权所需的 AppID，如果没申请，可不填！"
+msgstr ""
+"Required to set the secken AppID authorization, if no application, can not "
+"fill!"
+
+#: yangcong_admin.php:244
+msgid "洋葱AppKey"
+msgstr "Secken AppKey"
+
+#: yangcong_admin.php:244
+msgid "设置洋葱授权所需的 AppKey，如果没申请，可不填！"
+msgstr ""
+"Required to set the secken AppKey authorization, if no application, can not "
+"fill!"
+
+#: yangcong_admin.php:245
+msgid "洋葱Web授权码"
+msgstr "Secken WebAuthCode"
+
+#: yangcong_admin.php:245
+msgid "设置洋葱Web授权码，如果没申请，可不填！"
+msgstr ""
+"Set the secken Web authorization code, if you do not apply, can not fill!"
+
+#: yangcong_admin.php:249
+msgid "接口设置"
+msgstr "Api settings"
+
+#: yangcong_admin.php:267
+msgid "洋葱AppId信息不能为空！"
+msgstr "Secken Appid information can not be empty!"
+
+#: yangcong_admin.php:272
+msgid "洋葱AppKey信息不能为空!"
+msgstr "Secken AppKey information can not be empty!"
+
+#: yangcong_admin.php:277
+msgid "洋葱Web授权码不能为空"
+msgstr "Secken WebAuthCode information cannot not be empty!"
+
+#: yangcong_login.php:17
+msgid "登录成功"
+msgstr "Login success"
+
+#: yangcong_login.php:19
+msgid "登录失败"
+msgstr "Login failure"
+
+#: yangcong_login.php:40
+msgid "切换登录方式"
+msgstr "Switching login"
+
+#: yangcong_login.php:40
+msgid "账号登录"
+msgstr "Account login"
+
+#~ msgid "请扫描二维码授权"
+#~ msgstr "Please scan the QR code authorization"
