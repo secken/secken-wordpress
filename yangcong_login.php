@@ -44,6 +44,6 @@ var yangcong_uuid="{$loginCode['event_id']}",yangcong_login_url="{$login_url}";
 </script>
 EOF;
 		print '<br/></div>';
-		print '<p id="yangcong_login_bt"><a href="javascript:;" onclick="jQuery(this).parent().hide();jQuery(\'#loginform > p\').hide();jQuery(\'#yangcong_login\').fadeToggle();"><img src="./wp-content/plugins/yangcong/image/login.jpg"  alt="'.__('请使用洋葱APP扫描二维码', 'yangcong').'" /></a></p>';
+		print '<p id="yangcong_login_bt"><a href="javascript:;" onclick="jQuery(this).parent().hide();jQuery(\'#loginform > p\').hide();jQuery(\'#yangcong_login\').fadeToggle();"><img src="'.plugins_url('image/login.jpg',__FILE__).'"  alt="'.__('请使用洋葱APP扫描二维码', 'yangcong').'" /></a></p>';
 	}
 }

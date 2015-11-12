@@ -4,13 +4,13 @@ add_action('admin_menu', 'yangcong_admin_menu');
 function yangcong_admin_menu(){
     $yangcong_name = apply_filters('yangcong_name', __('洋葱授权','yangcong'));
     //添加洋葱授权菜单项
-    add_menu_page($yangcong_name, $yangcong_name, 'manage_options', 'yangcong_setting', 'yangcong_app_page', '');
+    add_menu_page($yangcong_name, $yangcong_name, 'edit_published_posts', 'yangcong_profile', 'yangcong_profile');
 
     //添加设置二级菜单
-    add_submenu_page('yangcong_setting',__('设置','yangcong').' &lsaquo; '.__('洋葱授权','yangcong'), __('设置','yangcong'), 'manage_options', 'yangcong_setting', 'yangcong_app_page');
+    add_submenu_page('yangcong_profile',__('设置','yangcong').' &lsaquo; '.__('洋葱授权','yangcong'), __('设置','yangcong'), 'create_users', 'yangcong_setting', 'yangcong_app_page');
 
     //添加我的洋葱二级菜单
-    add_submenu_page('yangcong_setting', __('我的洋葱','yangcong').' &lsaquo; '.__('洋葱授权','yangcong'), __('我的洋葱','yangcong'), 'manage_options', 'yangcong_profile', 'yangcong_profile');
+    //add_submenu_page('yangcong_profile', __('我的洋葱','yangcong').' &lsaquo; '.__('洋葱授权','yangcong'), __('我的洋葱','yangcong'), 'edit_published_posts', 'yangcong_profile', 'yangcong_profile');
 }
 
 add_action( 'admin_init', 'yangcong_admin_init' );
